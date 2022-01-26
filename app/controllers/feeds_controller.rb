@@ -13,7 +13,9 @@ class FeedsController < ApplicationController
   # POST /feeds
   def create
     @feed = Feed.new(feed_params)
-    @feed.save
+    if @feed.save
+      @feed.fetch_insert
+    end
     render 'static_pages/home'
   end
 

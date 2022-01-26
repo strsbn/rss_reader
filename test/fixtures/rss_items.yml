@@ -1,15 +1,24 @@
 # == Schema Information
 #
-# Table name: entries
+# Table name: rss_items
 #
 #  id          :bigint           not null, primary key
 #  description :text(65535)
-#  link        :string(255)
-#  pubdate     :date
+#  link        :string(255)      not null
+#  pubdate     :datetime         not null
 #  subject     :text(65535)
-#  title       :string(255)
+#  title       :string(255)      not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  feed_id     :bigint           not null
+#
+# Indexes
+#
+#  index_rss_items_on_feed_id  (feed_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (feed_id => feeds.id)
 #
 
 one:
@@ -17,11 +26,13 @@ one:
   link: MyString
   description: MyText
   subject: MyText
-  pubdate: 2022-01-23
+  pubdate: 2022-01-25
+  feed: one
 
 two:
   title: MyString
   link: MyString
   description: MyText
   subject: MyText
-  pubdate: 2022-01-23
+  pubdate: 2022-01-25
+  feed: two
