@@ -1,0 +1,16 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">更新日</th>
+    <th scope="col">title(link)</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @rss_items.each do |rss_item| %>
+    <tr>
+      <th scope="col"><%= rss_item.pubdate %></th>
+      <th scope="col"><a href="<%= rss_item.link %>"><%= rss_item.description %></a></th>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

@@ -1,16 +1,13 @@
-<h1>Feed Add</h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_with(model: @feed, url: feeds_path, local: true) do |f| %>
-
+    <%= form_with(model: @feed, local: true) do |f| %>
       <%= f.label :title %>
       <%= f.text_field :title, class: 'form-control' %>
 
       <%= f.label :endpoint %>
       <%= f.text_field :endpoint, class: 'form-control' %>
 
-      <%= f.submit "Add feed url...", class: "btn btn-primary" %>
+      <%= f.submit "Save changes", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
-
