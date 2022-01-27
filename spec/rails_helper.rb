@@ -61,4 +61,18 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  config.before(:each, tupe: :system) do
+
+    if ENV['WITHHEAD'].present?
+      # headあり(ふつうの) Chromeをつかうとき driven_by(:selenium_chrome)
+      driven_by(:selenium_chrome)
+    else
+      # headless Chromeをつかうとき driven_by(:selenium_chrome_headless)
+      driven_by(:selenium_chrome_headless)
+    end
+
+    # rack_test(高速だがJS実行などブラウザ機能は利用できない)をつかうとき driven_by(:rack_test)
+    # driven_by(:rack_test)
+  end
 end
