@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
 
 ruby '3.0.3'
 
@@ -55,6 +55,9 @@ group :development do
 end
 
 group :test do
+  gem 'capybara', '>= 3.26'
+  gem 'selenium-webdriver'
+  gem 'webdriver'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
