@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
 
 ruby '3.0.3'
 
@@ -33,6 +33,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'rspec-rails'
   gem 'debase'
   gem 'ruby-debug-ide'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -54,6 +55,9 @@ group :development do
 end
 
 group :test do
+  gem 'capybara', '>= 3.26'
+  gem 'selenium-webdriver'
+  gem 'webdriver'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
